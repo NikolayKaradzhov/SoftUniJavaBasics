@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class p07_TriangleArea {
+public class p08_TriangleArea {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
