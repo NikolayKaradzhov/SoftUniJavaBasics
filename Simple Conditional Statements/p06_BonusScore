@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class p06_BonusScore {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter number: ");
+        int number = Integer.parseInt(scanner.nextLine());
+        double bonusPoints;
+        boolean extraBonusPoints = (number % 2 == 0);
+        boolean numEnd5 = (number % 10 == 5);
+
+        if (number <= 100){
+            bonusPoints = 5;
+        } else if (number > 100 && number < 1000) {
+            bonusPoints = number * 0.2;
+        } else {
+            bonusPoints = number * 0.1;
+        }
+
+        if (extraBonusPoints) {
+            bonusPoints += 1;
+        }
+
+        if (numEnd5) {
+            bonusPoints += 2;
+        }
+
+        System.out.println(bonusPoints);
+        System.out.println(bonusPoints + number);
+    }
+}
