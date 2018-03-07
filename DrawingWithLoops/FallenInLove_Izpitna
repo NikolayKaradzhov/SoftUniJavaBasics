@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class FallenInLove {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = Integer.parseInt(scanner.nextLine());
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("#" + draw("~", i)
+                    + "#" + draw(".",2 * (n - i))
+                    + "#" + draw(".", 2 * i)
+                    + "#" + draw(".", 2 * (n - i))
+                    + "#" + draw("~", i) + "#");
+        }
+
+        for (int i = 0; i < n; i++) {
+            System.out.println(draw(".", 2 * i + 1)
+                    + "#" + draw("~", n - i)
+                    + "#" + draw(".", 2 * (n - i))
+                    + "#" + draw("~", n - i)
+                    + "#" + draw(".", 2 * i + 1));
+        }
+
+        for (int i = 0; i < n + 1; i++) {
+            System.out.println(draw(".",(n + 1) * 2)
+                    + "##" + draw(".", (n + 1) * 2));
+        }
+
+    }
+
+    private static String draw(String str, int count) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < count; i++) {
+            sb.append(str);
+        }
+        return sb.toString();
+    }
+}
