@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+public class SchoolCamp07May2017 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String season = scanner.nextLine();
+        String groupType = scanner.nextLine();
+        double studentsCount = Double.parseDouble(scanner.nextLine());
+        double nightsStay = Double.parseDouble(scanner.nextLine());
+        String sport = "s";
+        double pricePerNight = 0.0;
+        double totalPrice = 0.0;
+        double totalPriceWithDiscount = 0.0;
+
+        if ("Winter".equalsIgnoreCase(season) && "girls".equalsIgnoreCase(groupType)) {
+            sport = "Gymnastics";
+            pricePerNight = 9.60;
+        } else if ("Spring".equalsIgnoreCase(season) && "girls".equalsIgnoreCase(groupType)) {
+            sport = "Athletics";
+            pricePerNight = 7.20;
+        } else if ("Summer".equalsIgnoreCase(season) && "girls".equalsIgnoreCase(groupType)) {
+            sport = "Volleyball";
+            pricePerNight = 15;
+        } else if ("Winter".equalsIgnoreCase(season) && "boys".equalsIgnoreCase(groupType)) {
+            sport = "Judo";
+            pricePerNight = 9.60;
+        } else if ("Spring".equalsIgnoreCase(season) && "boys".equalsIgnoreCase(groupType)) {
+            sport = "Tennis";
+            pricePerNight = 7.20;
+        } else if ("Summer".equalsIgnoreCase(season) && "boys".equalsIgnoreCase(groupType)) {
+            sport = "Football";
+            pricePerNight = 15;
+        } else if ("Winter".equalsIgnoreCase(season) && "mixed".equalsIgnoreCase(groupType)) {
+            sport = "Ski";
+            pricePerNight = 10;
+        } else if ("Spring".equalsIgnoreCase(season) && "mixed".equalsIgnoreCase(groupType)) {
+            sport = "Cycling";
+            pricePerNight = 9.50;
+        } else if ("Summer".equalsIgnoreCase(season) && "mixed".equalsIgnoreCase(groupType)) {
+            sport = "Swimming";
+            pricePerNight = 20;
+        }
+
+        totalPrice = studentsCount * nightsStay * pricePerNight;
+
+        if (studentsCount >= 10 && studentsCount < 20) {
+            totalPriceWithDiscount = totalPrice - (0.05 * totalPrice);
+        } else if (studentsCount >= 20 && studentsCount < 50) {
+            totalPriceWithDiscount = totalPrice - (0.15 * totalPrice);
+        } else if (studentsCount >= 50) {
+            totalPriceWithDiscount = totalPrice - (0.5 * totalPrice);
+        } else {
+            totalPriceWithDiscount = totalPrice;
+        }
+
+        System.out.printf("%s %.2f lv.", sport,totalPriceWithDiscount);
+
+    }
+}
+
