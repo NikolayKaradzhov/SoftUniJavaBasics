@@ -1,0 +1,84 @@
+import java.util.Scanner;
+
+public class ChristmasToy16122017 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = Integer.parseInt(scanner.nextLine());
+        int dashesTopCount = n*2-2;
+        int dashesMiddleCOunt = n - 1;
+        int andSignCount = n + 2;
+        int wavesCountTop = n * 3 - 2;
+        int dashesDownPart = n / 2;
+        int wavesCountDown = n * 4 - 4;
+        int asteriksBottom = n / 2;
+        int dashesLastPart = n;
+        int andSignCountLastPart = n * 2;
+        //FirstRow
+        System.out.println(draw("-", n * 2)
+                + draw("*", n)
+                + draw("-", n * 2));
+
+        //SecondPartWith&&&
+        for (int i = 0; i < n / 2 ; i++) {
+            System.out.println(draw("-", dashesTopCount)
+                    + draw("*", i + 1)
+                    + draw("&", andSignCount)
+                    + draw("*", i + 1) + draw("-", dashesTopCount));
+            dashesTopCount -= 2;
+            andSignCount +=2;
+        }
+
+        //ThirdPartBeforeTheMiddle
+        for (int i = 0; i < n / 2; i++) {
+            System.out.println(draw("-", dashesMiddleCOunt )
+                    + draw("*", 2)
+                    + draw("~", wavesCountTop)
+                    + draw("*" , 2)
+                    + draw("-", dashesMiddleCOunt));
+            dashesMiddleCOunt--;
+            wavesCountTop += 2;
+        }
+
+        //MiddleRow
+        System.out.println(draw("-", n / 2)
+                + "*" + draw("|", n * 4 - 2)
+                + "*" + draw("-", n / 2));
+
+        //FourthPartBeforeTheMiddle
+        for (int i = n / 2; i > 0; i--) {
+            System.out.println(draw("-", dashesDownPart )
+                    + draw("*", 2)
+                    + draw("~", wavesCountDown )
+                    + draw("*" , 2)
+                    + draw("-", dashesDownPart));
+            dashesDownPart++;
+            wavesCountDown -= 2;
+        }
+
+        //FifthPartWith&&&
+        for (int i = n / 2; i > 0 ; i--) {
+            System.out.println(draw("-", dashesLastPart)
+                    + draw("*", asteriksBottom)
+                    + draw("&", andSignCountLastPart)
+                    + draw("*", asteriksBottom)
+                    + draw("-", dashesLastPart));
+            dashesLastPart += 2;
+            andSignCountLastPart -=2;
+            asteriksBottom--;
+        }
+
+        //LastRow
+        System.out.println(draw("-", n * 2)
+                + draw("*", n)
+                + draw("-", n * 2));
+    }
+
+    private static String draw(String str, int count) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < count; i++) {
+            sb.append(str);
+        }
+        return sb.toString();
+    }
+}
