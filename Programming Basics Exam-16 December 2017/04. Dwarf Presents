@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class DwarfPresents16122017 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int dwarfCount = Integer.parseInt(scanner.nextLine());
+        int moneyAvailable = Integer.parseInt(scanner.nextLine());
+
+        double priceSandClock = 2.20;
+        double sandClocksCount = 0.0;
+        double priceMagnet = 1.50;
+        double magnetCount = 0.0;
+        double priceCup = 5.00;
+        double cupsCount = 0.0;
+        double priceTshirt = 10.00;
+        double tShirtsCount = 0.0;
+        double totalMoneyCountForSandClocks = 0.0;
+        double totalMoneyCountForMagnets = 0.0;
+        double totalMoneyCountForCups = 0.0;
+        double totalMoneyCountForTshirts = 0.0;
+
+
+        for (int i = 0; i < dwarfCount; i++) {
+            String currentPresent = scanner.nextLine();
+            if ("sand clock".equalsIgnoreCase(currentPresent)) {
+                sandClocksCount++;
+                totalMoneyCountForSandClocks = sandClocksCount * priceSandClock;
+            } else if ("magnet".equalsIgnoreCase(currentPresent)) {
+                magnetCount++;
+                totalMoneyCountForMagnets = magnetCount * priceMagnet;
+            } else if ("cup".equalsIgnoreCase(currentPresent)) {
+                cupsCount++;
+                totalMoneyCountForCups = cupsCount * priceCup;
+            } else if ("t-shirt".equalsIgnoreCase(currentPresent)) {
+                tShirtsCount++;
+                totalMoneyCountForTshirts = tShirtsCount * priceTshirt;
+            }
+        }
+        double totalSumFinal = totalMoneyCountForSandClocks
+                + totalMoneyCountForMagnets
+                + totalMoneyCountForCups
+                + totalMoneyCountForTshirts;
+
+        if (totalSumFinal <= moneyAvailable) {
+            double leftMoney = moneyAvailable - totalSumFinal;
+            System.out.printf("Santa Claus has %.2f more leva left!", leftMoney);
+        } else {
+            double needMoney = Math.abs(totalSumFinal - moneyAvailable);
+            System.out.printf("Santa Claus will need %.2f more leva.", needMoney);
+        }
+    }
+}
