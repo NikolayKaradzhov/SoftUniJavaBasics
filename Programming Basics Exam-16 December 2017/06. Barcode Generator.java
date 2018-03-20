@@ -1,16 +1,16 @@
 import java.util.Scanner;
 
-public class test {
+public class Barcode Generator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         int f = Integer.parseInt(scanner.nextLine());
         int s = Integer.parseInt(scanner.nextLine());
 
-        int f1 = f / 1000;
-        int f2 = (f / 100) % 10;
-        int f3 = (f / 10) % 10;
-        int f4 = f % 10;
+        int f1 = f / 1000; // Get the first num
+        int f2 = (f / 100) % 10; // Get the second num
+        int f3 = (f / 10) % 10; // Get the third num
+        int f4 = f % 10; // Get the fourth num
 
         int s1 = s / 1000;
         int s2 = (s / 100) % 10;
