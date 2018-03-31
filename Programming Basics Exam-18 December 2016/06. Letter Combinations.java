@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class nod {
+public class LetterCombinations {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -10,21 +10,21 @@ public class nod {
         int comboCount = 0;
 
 
+
         for (char i = firstLetter; i <= lastLetter; i++) {
 
             for (char j = firstLetter; j <= lastLetter; j++) {
 
                 for (char k = firstLetter; k <= lastLetter; k++) {
-                    if (k == doNotIncludeLetter || i == doNotIncludeLetter || j == doNotIncludeLetter) {
+                    String generatedString = "" + i + j + k;
+                    if (generatedString.contains("" + doNotIncludeLetter)) {
                         continue;
                     }
                     comboCount++;
-                    System.out.printf("%c%c%c ", i, j, k);
+                    System.out.print(generatedString + " ");
                 }
             }
         }
         System.out.println(comboCount);
     }
 }
-
-
